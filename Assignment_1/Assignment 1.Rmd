@@ -1,0 +1,56 @@
+---
+title: "Assignment 1"
+author: "Eswar Dumpa"
+date: "2024-02-04"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Importing Dataset
+```{r import}
+diabetes <- read.csv("diabetes.csv")
+head(diabetes)
+```
+
+#Importing data from kaggle dataset using the below link
+https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset
+
+## Descriptive Statistics
+
+```{r descriptive}
+summary(diabetes)
+```
+#it displays the summary statistics of the "diabetes" Dataset.The Dataset contains 768 observations.
+
+## Transform
+
+```{r transform}
+
+library(dplyr)
+diabetes_2<- mutate(diabetes,Outcome=case_when(
+  Outcome==1 ~ "Positive",
+  Outcome==0 ~ "Negative"
+))
+diabetes_2$Outcome <- as.factor(diabetes_2$Outcome)
+summary(diabetes_2)
+```
+#here the numeric variable "outcome" is transposed into categorical variable, any value greater than zero is assigned as positive and else negative.
+
+
+## Plot
+
+```{r plot}
+plot(diabetes_2$Glucose)
+```
+
+#it creates a scatter plot of variable "glucose" levels of the patients, the max glucose level is 199.0 in the data set.
+
+
+

@@ -1,0 +1,261 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Assignment 1},
+  pdfauthor={Eswar Dumpa},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assignment 1}
+\author{Eswar Dumpa}
+\date{2024-02-04}
+
+\begin{document}
+\maketitle
+
+\hypertarget{importing-dataset}{%
+\subsection{Importing Dataset}\label{importing-dataset}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diabetes }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"diabetes.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(diabetes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Pregnancies Glucose BloodPressure SkinThickness Insulin  BMI
+## 1           6     148            72            35       0 33.6
+## 2           1      85            66            29       0 26.6
+## 3           8     183            64             0       0 23.3
+## 4           1      89            66            23      94 28.1
+## 5           0     137            40            35     168 43.1
+## 6           5     116            74             0       0 25.6
+##   DiabetesPedigreeFunction Age Outcome
+## 1                    0.627  50       1
+## 2                    0.351  31       0
+## 3                    0.672  32       1
+## 4                    0.167  21       0
+## 5                    2.288  33       1
+## 6                    0.201  30       0
+\end{verbatim}
+
+\#Importing data from kaggle dataset using the below link
+\url{https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset}
+
+\hypertarget{descriptive-statistics}{%
+\subsection{Descriptive Statistics}\label{descriptive-statistics}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(diabetes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Pregnancies        Glucose      BloodPressure    SkinThickness  
+##  Min.   : 0.000   Min.   :  0.0   Min.   :  0.00   Min.   : 0.00  
+##  1st Qu.: 1.000   1st Qu.: 99.0   1st Qu.: 62.00   1st Qu.: 0.00  
+##  Median : 3.000   Median :117.0   Median : 72.00   Median :23.00  
+##  Mean   : 3.845   Mean   :120.9   Mean   : 69.11   Mean   :20.54  
+##  3rd Qu.: 6.000   3rd Qu.:140.2   3rd Qu.: 80.00   3rd Qu.:32.00  
+##  Max.   :17.000   Max.   :199.0   Max.   :122.00   Max.   :99.00  
+##     Insulin           BMI        DiabetesPedigreeFunction      Age       
+##  Min.   :  0.0   Min.   : 0.00   Min.   :0.0780           Min.   :21.00  
+##  1st Qu.:  0.0   1st Qu.:27.30   1st Qu.:0.2437           1st Qu.:24.00  
+##  Median : 30.5   Median :32.00   Median :0.3725           Median :29.00  
+##  Mean   : 79.8   Mean   :31.99   Mean   :0.4719           Mean   :33.24  
+##  3rd Qu.:127.2   3rd Qu.:36.60   3rd Qu.:0.6262           3rd Qu.:41.00  
+##  Max.   :846.0   Max.   :67.10   Max.   :2.4200           Max.   :81.00  
+##     Outcome     
+##  Min.   :0.000  
+##  1st Qu.:0.000  
+##  Median :0.000  
+##  Mean   :0.349  
+##  3rd Qu.:1.000  
+##  Max.   :1.000
+\end{verbatim}
+
+\#it displays the summary statistics of the ``diabetes'' Dataset.The
+Dataset contains 768 observations.
+
+\hypertarget{transform}{%
+\subsection{Transform}\label{transform}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diabetes\_2}\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(diabetes,}\AttributeTok{Outcome=}\FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{  Outcome}\SpecialCharTok{==}\DecValTok{1} \SpecialCharTok{\textasciitilde{}} \StringTok{"Positive"}\NormalTok{,}
+\NormalTok{  Outcome}\SpecialCharTok{==}\DecValTok{0} \SpecialCharTok{\textasciitilde{}} \StringTok{"Negative"}
+\NormalTok{))}
+\NormalTok{diabetes\_2}\SpecialCharTok{$}\NormalTok{Outcome }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(diabetes\_2}\SpecialCharTok{$}\NormalTok{Outcome)}
+\FunctionTok{summary}\NormalTok{(diabetes\_2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Pregnancies        Glucose      BloodPressure    SkinThickness  
+##  Min.   : 0.000   Min.   :  0.0   Min.   :  0.00   Min.   : 0.00  
+##  1st Qu.: 1.000   1st Qu.: 99.0   1st Qu.: 62.00   1st Qu.: 0.00  
+##  Median : 3.000   Median :117.0   Median : 72.00   Median :23.00  
+##  Mean   : 3.845   Mean   :120.9   Mean   : 69.11   Mean   :20.54  
+##  3rd Qu.: 6.000   3rd Qu.:140.2   3rd Qu.: 80.00   3rd Qu.:32.00  
+##  Max.   :17.000   Max.   :199.0   Max.   :122.00   Max.   :99.00  
+##     Insulin           BMI        DiabetesPedigreeFunction      Age       
+##  Min.   :  0.0   Min.   : 0.00   Min.   :0.0780           Min.   :21.00  
+##  1st Qu.:  0.0   1st Qu.:27.30   1st Qu.:0.2437           1st Qu.:24.00  
+##  Median : 30.5   Median :32.00   Median :0.3725           Median :29.00  
+##  Mean   : 79.8   Mean   :31.99   Mean   :0.4719           Mean   :33.24  
+##  3rd Qu.:127.2   3rd Qu.:36.60   3rd Qu.:0.6262           3rd Qu.:41.00  
+##  Max.   :846.0   Max.   :67.10   Max.   :2.4200           Max.   :81.00  
+##      Outcome   
+##  Negative:500  
+##  Positive:268  
+##                
+##                
+##                
+## 
+\end{verbatim}
+
+\#here the numeric variable ``outcome'' is transposed into categorical
+variable, any value greater than zero is assigned as positive and else
+negative.
+
+\hypertarget{plot}{%
+\subsection{Plot}\label{plot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(diabetes\_2}\SpecialCharTok{$}\NormalTok{Glucose)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-1_files/figure-latex/plot-1.pdf}
+
+\#it creates a scatter plot of variable ``glucose'' levels of the
+patients, the max glucose level is 199.0 in the data set.
+
+\end{document}
