@@ -1,0 +1,804 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ASSIGNMENT 2 FML ESWAR DUMPA},
+  pdfauthor={Eswar Dumpa},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{ASSIGNMENT 2 FML ESWAR DUMPA}
+\author{Eswar Dumpa}
+\date{2024-02-25}
+
+\begin{document}
+\maketitle
+
+\#Overview
+
+\#Questions - Responses
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  How would this customer be classified? A. Since the new client does
+  not take out a personal loan, they would be categorized as 0.
+\item
+  What is a choice of k that balances between overfitting and ignoring
+  the predictor information? A. With an overall efficiency of 0, the
+  optimal value of K is 3.
+\item
+  Show the confusion matrix for the validation data that results from
+  using the best k. A. By using the best value for K as 3, and at
+  set.seed(159) the confusion matrix was
+
+\begin{verbatim}
+   Reference
+\end{verbatim}
+
+  Prediction 0 1 0 1811 61 1 7 121
+
+  True positive = 121 True Negative = 1811 False Positive = 7 False
+  Negative = 61
+\end{enumerate}
+
+4.Classify the customer using the best k? A. Based on the best value of
+K, which is K=3, the client would be categorized as 0. Thus, the client
+declines the personal loan.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Repartition the data, this time into training, validation, and test
+  sets (50\% : 30\% : 20\%). Apply the k-NN method with the k chosen
+  above. Compare the confusion matrix of the test set with that of the
+  training and validation sets. Comment on the differences and their
+  reason.
+\end{enumerate}
+
+A. Compared to test and validation data sets, the training set has
+higher accuracy (97.4\%), sensitivity (75.93\%), and specificity
+(99.7\%). It was caused by a number of things, including sample size,
+data leaking, and overfitting. The primary cause was overfitting, which
+occurs when a model is given permission to commit training data to
+memory in order to capture all of the training data's headlines.
+Consequently, the model's performance on training data will be
+remarkably higher than that of the other two data sets.
+
+For Testing data: Accuracy was 95.60\% Sensitivity was 60.64\%
+Specificity was 99.23\%
+
+For Validation data: Accuracy was 96.13\% Sensitivity was 65.51\%
+Specificity was 99.41\%
+
+For Training data: Accuracy was 97.44\% Sensitivity was 75.93\%
+Specificity was 99.73\%
+
+\hypertarget{loaded-the-required-libraries}{%
+\section{loaded the required
+libraries}\label{loaded-the-required-libraries}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(class)}
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(e1071)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(lattice)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Data import }
+\NormalTok{universal\_bank }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/eshwa/Documents/Fundamentals of Machine Learning/Assignment 2/UniversalBank.csv"}\NormalTok{)}
+\FunctionTok{dim}\NormalTok{(universal\_bank)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5000   14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# t function creates the transpose of the dataframe}
+\FunctionTok{t}\NormalTok{(}\FunctionTok{t}\NormalTok{(}\FunctionTok{names}\NormalTok{(universal\_bank)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]                
+##  [1,] "ID"                
+##  [2,] "Age"               
+##  [3,] "Experience"        
+##  [4,] "Income"            
+##  [5,] "ZIP.Code"          
+##  [6,] "Family"            
+##  [7,] "CCAvg"             
+##  [8,] "Education"         
+##  [9,] "Mortgage"          
+## [10,] "Personal.Loan"     
+## [11,] "Securities.Account"
+## [12,] "CD.Account"        
+## [13,] "Online"            
+## [14,] "CreditCard"
+\end{verbatim}
+
+\#PUT ID AND ZIP
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#here 1 and 5 are the indexes for the columns ID and ZIP}
+\NormalTok{universal\_bank }\OtherTok{\textless{}{-}}\NormalTok{ universal\_bank[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{)] }
+\FunctionTok{dim}\NormalTok{(universal\_bank)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5000   12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#education only need to be converted into factor}
+\NormalTok{universal\_bank}\SpecialCharTok{$}\NormalTok{Education }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(universal\_bank}\SpecialCharTok{$}\NormalTok{Education)}
+
+\CommentTok{\# converting education level to dummy variables}
+\NormalTok{groups }\OtherTok{\textless{}{-}} \FunctionTok{dummyVars}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{.,}\AttributeTok{data=}\NormalTok{universal\_bank)}
+\NormalTok{universal\_B\_bank }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{predict}\NormalTok{(groups,universal\_bank))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#gives us same sample if we return the code}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{159}\NormalTok{) }
+
+\CommentTok{\#60\% training data}
+\NormalTok{train\_index }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{row.names}\NormalTok{(universal\_B\_bank), }\FloatTok{0.6}\SpecialCharTok{*}\FunctionTok{dim}\NormalTok{(universal\_B\_bank)[}\DecValTok{1}\NormalTok{])}
+\NormalTok{train\_bank }\OtherTok{\textless{}{-}}\NormalTok{ universal\_B\_bank[train\_index,]}
+
+\CommentTok{\#40\% validation data}
+\NormalTok{valid\_index }\OtherTok{\textless{}{-}} \FunctionTok{setdiff}\NormalTok{(}\FunctionTok{row.names}\NormalTok{(universal\_B\_bank), train\_index)}
+\NormalTok{valid\_bank }\OtherTok{\textless{}{-}}\NormalTok{ universal\_B\_bank[valid\_index,]}
+
+\CommentTok{\# Prints the dims of the datasets}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Training data dimensions:"}\NormalTok{, }\FunctionTok{dim}\NormalTok{(train\_bank), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Training data dimensions: 3000 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Validation data dimensions:"}\NormalTok{, }\FunctionTok{dim}\NormalTok{(valid\_bank), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Validation data dimensions: 2000 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 10th variable of the data frame is personal loan}
+\NormalTok{train\_norm\_bank }\OtherTok{\textless{}{-}}\NormalTok{ train\_bank[,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{] }\CommentTok{\# Personal loan is the 10th variable in data frame}
+\NormalTok{valid\_norm\_bank }\OtherTok{\textless{}{-}}\NormalTok{ valid\_bank[,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{]}
+
+\NormalTok{norm.values }\OtherTok{\textless{}{-}} \FunctionTok{preProcess}\NormalTok{(train\_bank[, }\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{], }\AttributeTok{method=}\FunctionTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"scale"}\NormalTok{))}
+
+\CommentTok{\#Normalization of training dataset and validation dataset}
+\NormalTok{train\_norm\_bank }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values, train\_bank[, }\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{])}
+\NormalTok{valid\_norm\_bank }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values, valid\_bank[, }\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Age = 40, Experience = 10, Income = 84, Family = 2, CCAvg = 2,
+  Education\_1 = 0, Education\_2 = 1, Education\_3 = 0, Mortgage = 0,
+  Securities Account = 0, CD Account = 0, Online = 1, and Credit Card =
+  1. Perform a k-NN classification with all predictors except ID and ZIP
+  code using k = 1. Remember to transform categorical predictors with
+  more than two categories into dummy variables first. Specify the
+  success class as 1 (loan acceptance), and use the default cutoff value
+  of 0.5. How would this customer be classified?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#creating a new customer input}
+\NormalTok{new\_customer }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Age =} \DecValTok{40}\NormalTok{,}
+  \AttributeTok{Experience =} \DecValTok{10}\NormalTok{,}
+  \AttributeTok{Income =} \DecValTok{84}\NormalTok{,}
+  \AttributeTok{Family =} \DecValTok{2}\NormalTok{,}
+  \AttributeTok{CCAvg =} \DecValTok{2}\NormalTok{,}
+  \AttributeTok{Education.1 =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Education.2 =} \DecValTok{1}\NormalTok{,}
+  \AttributeTok{Education.3 =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Mortgage =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Securities.Account =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{CD.Account =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Online =} \DecValTok{1}\NormalTok{,}
+  \AttributeTok{CreditCard =} \DecValTok{1}
+\NormalTok{)}
+
+\CommentTok{\# Normalizing}
+\NormalTok{new\_cust\_norm }\OtherTok{\textless{}{-}}\NormalTok{ new\_customer}
+\NormalTok{new\_cust\_norm }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values, new\_cust\_norm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Assuming k=1}
+\NormalTok{knn.pred1 }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank, }
+                       \AttributeTok{test =}\NormalTok{ new\_cust\_norm, }
+                       \AttributeTok{cl =}\NormalTok{ train\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =} \DecValTok{1}\NormalTok{)}
+
+\CommentTok{\# Prints knn prediction}
+\NormalTok{knn.pred1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+## Levels: 0 1
+\end{verbatim}
+
+\#loan not granted for given test dataset for k=1
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is a choice of k that balances between over fitting and ignoring
+  the predictor information?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#set range of k 1 to 20}
+\NormalTok{accuracy\_bank }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{k =} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{1}\NormalTok{), }\AttributeTok{overallaccuracy =} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{) \{}
+\NormalTok{knn.pred }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank, }
+                       \AttributeTok{test =}\NormalTok{ valid\_norm\_bank, }
+                       \AttributeTok{cl =}\NormalTok{ train\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =}\NormalTok{ i)}
+
+
+\NormalTok{accuracy\_bank[i, }\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(knn.pred, }\FunctionTok{as.factor}\NormalTok{(valid\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan),}
+                                       \AttributeTok{positive =} \StringTok{"1"}\NormalTok{)}\SpecialCharTok{$}\NormalTok{overall[}\DecValTok{1}\NormalTok{] }
+\NormalTok{\}}
+
+\CommentTok{\#k value with max accuracy}
+\NormalTok{bestValueofk }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(accuracy\_bank[,}\DecValTok{2}\NormalTok{] }\SpecialCharTok{==} \FunctionTok{max}\NormalTok{(accuracy\_bank[,}\DecValTok{2}\NormalTok{])) }\CommentTok{\# gives the k value with maximum accuracy}
+\NormalTok{accuracy\_bank}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     k overallaccuracy
+## 1   1          0.9620
+## 2   2          0.9630
+## 3   3          0.9660
+## 4   4          0.9615
+## 5   5          0.9630
+## 6   6          0.9600
+## 7   7          0.9630
+## 8   8          0.9630
+## 9   9          0.9600
+## 10 10          0.9575
+## 11 11          0.9570
+## 12 12          0.9540
+## 13 13          0.9535
+## 14 14          0.9525
+## 15 15          0.9510
+## 16 16          0.9500
+## 17 17          0.9495
+## 18 18          0.9465
+## 19 19          0.9465
+## 20 20          0.9460
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#prints the best value of k}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"The Best Value of k is:"}\NormalTok{, bestValueofk)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The Best Value of k is: 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The Best Value of k is 3}
+\CommentTok{\#Plotting graph between k value and accuracy}
+\FunctionTok{plot}\NormalTok{(accuracy\_bank}\SpecialCharTok{$}\NormalTok{k,accuracy\_bank}\SpecialCharTok{$}\NormalTok{overallaccuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Assignment-2_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Show the confusion matrix for the validation data that results from
+  using the best k.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# take the best k value for prediction}
+\NormalTok{knn.pred2 }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank, }
+                        \AttributeTok{test =}\NormalTok{ valid\_norm\_bank, }
+                        \AttributeTok{cl =}\NormalTok{ train\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =}\NormalTok{ bestValueofk)}
+
+
+\CommentTok{\# confusion matrix for dataset}
+\NormalTok{confusion\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(knn.pred2,}
+                                    \FunctionTok{as.factor}\NormalTok{(valid\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan), }\AttributeTok{positive =} \StringTok{"1"}\NormalTok{)}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confusion Matrix for validation data:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix for validation data:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Confusion Matrix of validation data}
+\FunctionTok{print}\NormalTok{(confusion\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 1811   61
+##          1    7  121
+##                                           
+##                Accuracy : 0.966           
+##                  95% CI : (0.9571, 0.9735)
+##     No Information Rate : 0.909           
+##     P-Value [Acc > NIR] : < 2e-16         
+##                                           
+##                   Kappa : 0.7628          
+##                                           
+##  Mcnemar's Test P-Value : 1.3e-10         
+##                                           
+##             Sensitivity : 0.6648          
+##             Specificity : 0.9961          
+##          Pos Pred Value : 0.9453          
+##          Neg Pred Value : 0.9674          
+##              Prevalence : 0.0910          
+##          Detection Rate : 0.0605          
+##    Detection Prevalence : 0.0640          
+##       Balanced Accuracy : 0.8305          
+##                                           
+##        'Positive' Class : 1               
+## 
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Consider the following customer: Age = 40, Experience = 10, Income =
+  84, Family = 2, CCAvg = 2, Education\_1 = 0, Education\_2 = 1,
+  Education\_3 = 0, Mortgage = 0, Securities Account = 0, CD Account =
+  0, Online = 1 and Credit Card = 1. Classify the customer using the
+  best k.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_customer1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Age =} \DecValTok{40}\NormalTok{,}
+  \AttributeTok{Experience =} \DecValTok{10}\NormalTok{,}
+  \AttributeTok{Income =} \DecValTok{84}\NormalTok{,}
+  \AttributeTok{Family =} \DecValTok{2}\NormalTok{,}
+  \AttributeTok{CCAvg =} \DecValTok{2}\NormalTok{,}
+  \AttributeTok{Education.1 =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Education.2 =} \DecValTok{1}\NormalTok{,}
+  \AttributeTok{Education.3 =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Mortgage =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Securities.Account =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{CD.Account =} \DecValTok{0}\NormalTok{,}
+  \AttributeTok{Online =} \DecValTok{1}\NormalTok{,}
+  \AttributeTok{CreditCard =} \DecValTok{1}
+\NormalTok{)}
+
+\CommentTok{\# Normalizing new customer}
+\NormalTok{new\_cust\_norm1 }\OtherTok{\textless{}{-}}\NormalTok{ new\_customer1}
+\NormalTok{new\_cust\_norm1 }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values, new\_cust\_norm1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knn.pred3 }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank, }
+                        \AttributeTok{test =}\NormalTok{ new\_cust\_norm1, }
+                        \AttributeTok{cl =}\NormalTok{ train\_bank}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =}\NormalTok{ bestValueofk)}
+
+\CommentTok{\#prints prediction}
+\NormalTok{knn.pred3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+## Levels: 0 1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Repartition the data, this time into training, validation, and test
+  sets (50\% : 30\% : 20\%). Apply the k-NN method with the k chosen
+  above. Compare the confusion matrix of the test set with that of the
+  training and validation sets. Comment on the differences and their
+  reason.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{159}\NormalTok{) }\CommentTok{\# Ensures that we get the same sample if we rerun the code}
+
+\CommentTok{\# Split the data to training (50\%), validation (30\%) and testing (20\%) sets each}
+\NormalTok{train\_index1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{row.names}\NormalTok{(universal\_B\_bank), }\FloatTok{0.5}\SpecialCharTok{*}\FunctionTok{dim}\NormalTok{(universal\_B\_bank)[}\DecValTok{1}\NormalTok{])}
+\NormalTok{valid\_index1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{setdiff}\NormalTok{(}\FunctionTok{row.names}\NormalTok{(universal\_B\_bank), train\_index1),}
+                       \FloatTok{0.3}\SpecialCharTok{*}\FunctionTok{dim}\NormalTok{(universal\_B\_bank)[}\DecValTok{1}\NormalTok{]) }
+\NormalTok{test\_index1 }\OtherTok{\textless{}{-}} \FunctionTok{setdiff}\NormalTok{(}\FunctionTok{row.names}\NormalTok{(universal\_B\_bank), }\FunctionTok{c}\NormalTok{(train\_index1,valid\_index1))}
+
+\NormalTok{train\_Data1 }\OtherTok{\textless{}{-}}\NormalTok{ universal\_B\_bank[train\_index1,]}
+\NormalTok{valid\_Data1 }\OtherTok{\textless{}{-}}\NormalTok{ universal\_B\_bank[valid\_index1,]}
+\NormalTok{test\_Data1 }\OtherTok{\textless{}{-}}\NormalTok{ universal\_B\_bank[test\_index1,]}
+
+\CommentTok{\# Print dimensions of split datasets}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Training data dimensions:"}\NormalTok{, }\FunctionTok{dim}\NormalTok{(train\_Data1), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Training data dimensions: 2500 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Validation data dimensions:"}\NormalTok{, }\FunctionTok{dim}\NormalTok{(valid\_Data1), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Validation data dimensions: 1500 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Testing data dimensions:"}\NormalTok{, }\FunctionTok{dim}\NormalTok{(test\_Data1), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Testing data dimensions: 1000 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Normalize data for 3 sets}
+\NormalTok{train\_norm\_bank1 }\OtherTok{\textless{}{-}}\NormalTok{ train\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{] }\CommentTok{\#removing the 10th variable(personal loan)}
+\NormalTok{valid\_norm\_bank1 }\OtherTok{\textless{}{-}}\NormalTok{ valid\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{]}
+\NormalTok{test\_norm\_bank1 }\OtherTok{\textless{}{-}}\NormalTok{ test\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{]}
+
+\CommentTok{\#Preprocessing}
+\NormalTok{norm.values1 }\OtherTok{\textless{}{-}} \FunctionTok{preProcess}\NormalTok{(train\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{], }\AttributeTok{method=}\FunctionTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"scale"}\NormalTok{))}
+\NormalTok{train\_norm\_bank1 }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values1, train\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{])}
+\NormalTok{valid\_norm\_bank1 }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values1, valid\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{])}
+\NormalTok{test\_norm\_bank1 }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(norm.values1, test\_Data1[ ,}\SpecialCharTok{{-}}\DecValTok{10}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#knn prediction for best value of k}
+\NormalTok{knn.pred.train }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank1, }
+                             \AttributeTok{test =}\NormalTok{ train\_norm\_bank1, }
+                             \AttributeTok{cl =}\NormalTok{ train\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =} \DecValTok{3}\NormalTok{)}
+
+\CommentTok{\#confusion matrix of training data}
+\NormalTok{confusion\_matrix.train }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(knn.pred.train, }
+                                          \FunctionTok{as.factor}\NormalTok{(train\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan), }\AttributeTok{positive =} \StringTok{"1"}\NormalTok{)}
+
+\CommentTok{\#print matrix}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confusion Matrix for training data:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix for training data:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Confusion Matrix of training data:}
+\FunctionTok{print}\NormalTok{(confusion\_matrix.train)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 2253   58
+##          1    6  183
+##                                           
+##                Accuracy : 0.9744          
+##                  95% CI : (0.9674, 0.9802)
+##     No Information Rate : 0.9036          
+##     P-Value [Acc > NIR] : < 2.2e-16       
+##                                           
+##                   Kappa : 0.8374          
+##                                           
+##  Mcnemar's Test P-Value : 1.83e-10        
+##                                           
+##             Sensitivity : 0.7593          
+##             Specificity : 0.9973          
+##          Pos Pred Value : 0.9683          
+##          Neg Pred Value : 0.9749          
+##              Prevalence : 0.0964          
+##          Detection Rate : 0.0732          
+##    Detection Prevalence : 0.0756          
+##       Balanced Accuracy : 0.8783          
+##                                           
+##        'Positive' Class : 1               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knn.pred.valid }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank1, }
+                             \AttributeTok{test =}\NormalTok{ valid\_norm\_bank1, }
+                             \AttributeTok{cl =}\NormalTok{ train\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =}\NormalTok{ bestValueofk)}
+
+\CommentTok{\#confusion matrix }
+\NormalTok{confusion\_matrix.valid }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(knn.pred.valid, }
+                                          \FunctionTok{as.factor}\NormalTok{(valid\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan), }\AttributeTok{positive =} \StringTok{"1"}\NormalTok{)}
+
+\CommentTok{\#print matrix}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confusion Matrix for Validation data:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix for Validation data:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Confusion Matrix }
+\FunctionTok{print}\NormalTok{(confusion\_matrix.valid)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    0    1
+##          0 1347   50
+##          1    8   95
+##                                           
+##                Accuracy : 0.9613          
+##                  95% CI : (0.9503, 0.9705)
+##     No Information Rate : 0.9033          
+##     P-Value [Acc > NIR] : < 2.2e-16       
+##                                           
+##                   Kappa : 0.7457          
+##                                           
+##  Mcnemar's Test P-Value : 7.303e-08       
+##                                           
+##             Sensitivity : 0.65517         
+##             Specificity : 0.99410         
+##          Pos Pred Value : 0.92233         
+##          Neg Pred Value : 0.96421         
+##              Prevalence : 0.09667         
+##          Detection Rate : 0.06333         
+##    Detection Prevalence : 0.06867         
+##       Balanced Accuracy : 0.82463         
+##                                           
+##        'Positive' Class : 1               
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#knn prediction for best value of k}
+\NormalTok{knn.pred.test }\OtherTok{\textless{}{-}}\NormalTok{ class}\SpecialCharTok{::}\FunctionTok{knn}\NormalTok{(}\AttributeTok{train =}\NormalTok{ train\_norm\_bank1, }
+                            \AttributeTok{test =}\NormalTok{ test\_norm\_bank1, }
+                            \AttributeTok{cl =}\NormalTok{ train\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan, }\AttributeTok{k =}\NormalTok{ bestValueofk)}
+
+\CommentTok{\#confusion matrix }
+\NormalTok{confusion\_matrix.test }\OtherTok{\textless{}{-}} \FunctionTok{confusionMatrix}\NormalTok{(knn.pred.test, }
+                                        \FunctionTok{as.factor}\NormalTok{(test\_Data1}\SpecialCharTok{$}\NormalTok{Personal.Loan), }\AttributeTok{positive =} \StringTok{"1"}\NormalTok{)}
+
+\CommentTok{\#print matrix}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confusion Matrix for Test data:"}\NormalTok{, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix for Test data:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Confusion Matrix }
+\FunctionTok{print}\NormalTok{(confusion\_matrix.test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 899  37
+##          1   7  57
+##                                           
+##                Accuracy : 0.956           
+##                  95% CI : (0.9414, 0.9679)
+##     No Information Rate : 0.906           
+##     P-Value [Acc > NIR] : 1.733e-09       
+##                                           
+##                   Kappa : 0.6986          
+##                                           
+##  Mcnemar's Test P-Value : 1.232e-05       
+##                                           
+##             Sensitivity : 0.6064          
+##             Specificity : 0.9923          
+##          Pos Pred Value : 0.8906          
+##          Neg Pred Value : 0.9605          
+##              Prevalence : 0.0940          
+##          Detection Rate : 0.0570          
+##    Detection Prevalence : 0.0640          
+##       Balanced Accuracy : 0.7993          
+##                                           
+##        'Positive' Class : 1               
+## 
+\end{verbatim}
+
+\end{document}
