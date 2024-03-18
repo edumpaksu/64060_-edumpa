@@ -1,0 +1,594 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={FML\_ASSIGNMENT\_4},
+  pdfauthor={Eswar dumpa},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{FML\_ASSIGNMENT\_4}
+\author{Eswar dumpa}
+\date{2024-03-16}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The necessary packages are loaded}
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("factoextra")}
+\FunctionTok{library}\NormalTok{(factoextra)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'factoextra' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'readr' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'forcats' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats   1.0.0     v stringr   1.5.1
+## v lubridate 1.9.3     v tibble    3.2.1
+## v purrr     1.0.2     v tidyr     1.3.1
+## v readr     2.1.5     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## x purrr::lift()   masks caret::lift()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("cowplot")}
+\FunctionTok{library}\NormalTok{(cowplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'cowplot' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'cowplot'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:lubridate':
+## 
+##     stamp
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("flexclust")}
+\FunctionTok{library}\NormalTok{(flexclust)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'flexclust' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: grid
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: modeltools
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: stats4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("cluster")}
+\FunctionTok{library}\NormalTok{(cluster)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("NbClust")}
+\FunctionTok{library}\NormalTok{(NbClust)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# It imports the "Pharmaceuticals" dataset from the specified file path}
+\NormalTok{Pharmacy }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/eshwa/Documents/Fundamentals of Machine Learning/ASSN 4/Pharmaceuticals.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The "Pharmacy" data set will be viewed}
+\FunctionTok{view}\NormalTok{(Pharmacy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#  It displays first few rows of the "Pharmacy" dataset}
+\FunctionTok{head}\NormalTok{(Pharmacy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Symbol                Name Market_Cap Beta PE_Ratio  ROE  ROA Asset_Turnover
+## 1    ABT Abbott Laboratories      68.44 0.32     24.7 26.4 11.8            0.7
+## 2    AGN      Allergan, Inc.       7.58 0.41     82.5 12.9  5.5            0.9
+## 3    AHM        Amersham plc       6.30 0.46     20.7 14.9  7.8            0.9
+## 4    AZN     AstraZeneca PLC      67.63 0.52     21.5 27.4 15.4            0.9
+## 5    AVE             Aventis      47.16 0.32     20.1 21.8  7.5            0.6
+## 6    BAY            Bayer AG      16.90 1.11     27.9  3.9  1.4            0.6
+##   Leverage Rev_Growth Net_Profit_Margin Median_Recommendation Location Exchange
+## 1     0.42       7.54              16.1          Moderate Buy       US     NYSE
+## 2     0.60       9.16               5.5          Moderate Buy   CANADA     NYSE
+## 3     0.27       7.05              11.2            Strong Buy       UK     NYSE
+## 4     0.00      15.00              18.0         Moderate Sell       UK     NYSE
+## 5     0.34      26.81              12.9          Moderate Buy   FRANCE     NYSE
+## 6     0.00      -3.17               2.6                  Hold  GERMANY     NYSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# It displays summary statistics for the "Pharmacy" dataset}
+\FunctionTok{summary}\NormalTok{(Pharmacy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Symbol              Name             Market_Cap          Beta       
+##  Length:21          Length:21          Min.   :  0.41   Min.   :0.1800  
+##  Class :character   Class :character   1st Qu.:  6.30   1st Qu.:0.3500  
+##  Mode  :character   Mode  :character   Median : 48.19   Median :0.4600  
+##                                        Mean   : 57.65   Mean   :0.5257  
+##                                        3rd Qu.: 73.84   3rd Qu.:0.6500  
+##                                        Max.   :199.47   Max.   :1.1100  
+##     PE_Ratio          ROE            ROA        Asset_Turnover    Leverage     
+##  Min.   : 3.60   Min.   : 3.9   Min.   : 1.40   Min.   :0.3    Min.   :0.0000  
+##  1st Qu.:18.90   1st Qu.:14.9   1st Qu.: 5.70   1st Qu.:0.6    1st Qu.:0.1600  
+##  Median :21.50   Median :22.6   Median :11.20   Median :0.6    Median :0.3400  
+##  Mean   :25.46   Mean   :25.8   Mean   :10.51   Mean   :0.7    Mean   :0.5857  
+##  3rd Qu.:27.90   3rd Qu.:31.0   3rd Qu.:15.00   3rd Qu.:0.9    3rd Qu.:0.6000  
+##  Max.   :82.50   Max.   :62.9   Max.   :20.30   Max.   :1.1    Max.   :3.5100  
+##    Rev_Growth    Net_Profit_Margin Median_Recommendation   Location        
+##  Min.   :-3.17   Min.   : 2.6      Length:21             Length:21         
+##  1st Qu.: 6.38   1st Qu.:11.2      Class :character      Class :character  
+##  Median : 9.37   Median :16.1      Mode  :character      Mode  :character  
+##  Mean   :13.37   Mean   :15.7                                              
+##  3rd Qu.:21.87   3rd Qu.:21.1                                              
+##  Max.   :34.21   Max.   :25.5                                              
+##    Exchange        
+##  Length:21         
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#a. Use only the numerical variables (1 to 9) to cluster the 21 firms. Justify the various choices made in conducting the cluster analysis, such as weights for different variables, the specific clustering algorithm(s) used, the number of clusters formed, and so on.}
+
+\CommentTok{\# Calculates the column wise mean of missing values in "Pharmacy" dataset}
+\FunctionTok{colMeans}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(Pharmacy))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                Symbol                  Name            Market_Cap 
+##                     0                     0                     0 
+##                  Beta              PE_Ratio                   ROE 
+##                     0                     0                     0 
+##                   ROA        Asset_Turnover              Leverage 
+##                     0                     0                     0 
+##            Rev_Growth     Net_Profit_Margin Median_Recommendation 
+##                     0                     0                     0 
+##              Location              Exchange 
+##                     0                     0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sets row names of "Pharmacy" to the values in second column.}
+\FunctionTok{row.names}\NormalTok{(Pharmacy) }\OtherTok{\textless{}{-}}\NormalTok{ Pharmacy[,}\DecValTok{2}\NormalTok{]}
+\CommentTok{\# Removes the second column from "Pharmacy" dataset}
+\NormalTok{Pharmacy }\OtherTok{\textless{}{-}}\NormalTok{ Pharmacy[,}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{]}
+\CommentTok{\#  Removes the first column and columns 11 to 13 from the updated "Pharmacy" dataset}
+\NormalTok{Pharmacy}\FloatTok{.1} \OtherTok{\textless{}{-}}\NormalTok{ Pharmacy[,}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{11}\SpecialCharTok{:}\DecValTok{13}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Checks the dimensions of "Pharmacy" dataset}
+\FunctionTok{dim}\NormalTok{(Pharmacy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 21 13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Standardizes columns of "Pharmacy.1" using the scale function}
+\NormalTok{norm.Pharmacy}\FloatTok{.1} \OtherTok{\textless{}{-}} \FunctionTok{scale}\NormalTok{(Pharmacy}\FloatTok{.1}\NormalTok{)}
+\CommentTok{\# Calculates distance matrix based on the standardized data}
+\NormalTok{dist }\OtherTok{\textless{}{-}} \FunctionTok{get\_dist}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{)}
+\CommentTok{\# Visualizes distance matrix using function}
+\FunctionTok{fviz\_dist}\NormalTok{(dist)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The chart illustrates how color intensity varies with distance traveled. The diagonal line that shows the separation between two observations has a value of zero, as would be expected.}
+
+\CommentTok{\# For finding the best K Value: For a k{-}means model, the Elbow chart and the Silhouette Method are useful tools for determining the number of clusters, particularly in situations when outside influences are not significant. The Elbow graphic illustrates how overall cluster diversity declines as the number of clusters increases. In contrast, the Silhouette Method assesses an object\textquotesingle{}s cluster alignment with other clusters in order to provide insight on the cohesiveness of the clusters.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calculates Within Cluster Sum of Squares (WSS) for different numbers of clusters using k{-}means algorithm}
+\NormalTok{WSS }\OtherTok{\textless{}{-}} \FunctionTok{fviz\_nbclust}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{, kmeans, }\AttributeTok{method =} \StringTok{"wss"}\NormalTok{)}
+\CommentTok{\# Calculates Silhouette scores for different numbers of clusters using k{-}means algorithm}
+\NormalTok{Sil }\OtherTok{\textless{}{-}} \FunctionTok{fviz\_nbclust}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{, kmeans, }\AttributeTok{method =} \StringTok{"silhouette"}\NormalTok{)}
+\CommentTok{\# Displays plots of WSS and Silhouette scores}
+\FunctionTok{plot\_grid}\NormalTok{(WSS, Sil)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The charts indicate different optimal values for k, the Elbow Method suggests k=2, while the Silhouette Method produces k=5. Despite this, I have decided to use k=5 for k{-}means method in my analysis.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set the seed for reproducibility}
+\CommentTok{\# Performs k{-}means clustering on normalized "Pharmacy.1" data with 5 centers }
+\CommentTok{\# Displays the cluster centers obtained from k{-}means clustering}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{KMeans.Pharmacy.Opt }\OtherTok{\textless{}{-}} \FunctionTok{kmeans}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{, }\AttributeTok{centers =} \DecValTok{5}\NormalTok{, }\AttributeTok{nstart =} \DecValTok{50}\NormalTok{)}
+\NormalTok{KMeans.Pharmacy.Opt}\SpecialCharTok{$}\NormalTok{centers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Market_Cap       Beta    PE_Ratio        ROE        ROA Asset_Turnover
+## 1 -0.03142211 -0.4360989 -0.31724852  0.1950459  0.4083915      0.1729746
+## 2 -0.87051511  1.3409869 -0.05284434 -0.6184015 -1.1928478     -0.4612656
+## 3 -0.43925134 -0.4701800  2.70002464 -0.8349525 -0.9234951      0.2306328
+## 4  1.69558112 -0.1780563 -0.19845823  1.2349879  1.3503431      1.1531640
+## 5 -0.76022489  0.2796041 -0.47742380 -0.7438022 -0.8107428     -1.2684804
+##      Leverage Rev_Growth Net_Profit_Margin
+## 1 -0.27449312 -0.7041516       0.556954446
+## 2  1.36644699 -0.6912914      -1.320000179
+## 3 -0.14170336 -0.1168459      -1.416514761
+## 4 -0.46807818  0.4671788       0.591242521
+## 5  0.06308085  1.5180158      -0.006893899
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display size of each cluster}
+\NormalTok{KMeans.Pharmacy.Opt}\SpecialCharTok{$}\NormalTok{size}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8 3 2 4 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display within{-}cluster sum of squares}
+\NormalTok{KMeans.Pharmacy.Opt}\SpecialCharTok{$}\NormalTok{withinss}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 21.879320 15.595925  2.803505  9.284424 12.791257
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualize k{-}means clusters using a scatter plot}
+\FunctionTok{fviz\_cluster}\NormalTok{(KMeans.Pharmacy.Opt, }\AttributeTok{data =}\NormalTok{ norm.Pharmacy}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Based on the dataset\textquotesingle{}s closeness to core points, we were able to identify five clusters. Cluster 2 is noteworthy for its high Beta, whilst Cluster 4 is notable for its high Market Capital. }
+\CommentTok{\# Conversely, Cluster 5 exhibits a low asset turnover rate.When comparing the number of firms inside each cluster, Cluster 1 has the most, whilst Cluster 3 only has two. }
+\CommentTok{\# The information about data dispersion can be obtained from the within{-}cluster sum of squared distances: Compared to Cluster 3 (2.8), Cluster 1 (21.9) is less homogeneous.The findings of the algorithm are visualized, enabling us to observe the many groups into which the data has been split.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#b. Interpret the clusters with respect to the numerical variables used in forming the clusters.}
+
+\CommentTok{\# Set seed for reproducibility}
+\CommentTok{\# Performs k{-}means clustering on the normalized "Pharmacy.1" data with 3 clusters}
+\CommentTok{\# Displays cluster centers}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{KMeans.Pharmacy }\OtherTok{\textless{}{-}} \FunctionTok{kmeans}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{, }\AttributeTok{centers =} \DecValTok{3}\NormalTok{, }\AttributeTok{nstart =} \DecValTok{50}\NormalTok{)}
+\NormalTok{KMeans.Pharmacy}\SpecialCharTok{$}\NormalTok{centers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Market_Cap       Beta   PE_Ratio        ROE        ROA Asset_Turnover
+## 1 -0.6125361  0.2698666  1.3143935 -0.9609057 -1.0174553      0.2306328
+## 2  0.6733825 -0.3586419 -0.2763512  0.6565978  0.8344159      0.4612656
+## 3 -0.8261772  0.4775991 -0.3696184 -0.5631589 -0.8514589     -0.9994088
+##     Leverage Rev_Growth Net_Profit_Margin
+## 1 -0.3592866 -0.5757385        -1.3784169
+## 2 -0.3331068 -0.2902163         0.6823310
+## 3  0.8502201  0.9158889        -0.3319956
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Displays sizes of each cluster obtained from the k{-}means clustering.}
+\NormalTok{KMeans.Pharmacy}\SpecialCharTok{$}\NormalTok{size}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  4 11  6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Displays within{-}cluster sum of squares for each cluster}
+\NormalTok{KMeans.Pharmacy}\SpecialCharTok{$}\NormalTok{withinss}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20.54199 43.30886 32.14336
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Visualize k{-}means clusters using a scatter plot}
+\FunctionTok{fviz\_cluster}\NormalTok{(KMeans.Pharmacy, }\AttributeTok{data =}\NormalTok{ norm.Pharmacy}\FloatTok{.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{clusplot}\NormalTok{(norm.Pharmacy}\FloatTok{.1}\NormalTok{,KMeans.Pharmacy}\SpecialCharTok{$}\NormalTok{cluster,}\AttributeTok{color =} \ConstantTok{TRUE}\NormalTok{,}\AttributeTok{shade =}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{labels=}\DecValTok{2}\NormalTok{,}\AttributeTok{lines=}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-29-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#c. Is there a pattern in clusters with respect to numerical variables (10 to 12)?}
+
+\CommentTok{\# Bar charts were my choice for examining trends in the data for the final three categorical variables: stock exchange, location, and median recommendation. These graphs give a clearer picture of the distribution of enterprises among various clusters, facilitating a better comprehension of data trends.}
+
+\NormalTok{Pharmacy}\FloatTok{.2} \OtherTok{\textless{}{-}}\NormalTok{  Pharmacy}\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{13}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+    \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Cluster =}\NormalTok{ KMeans.Pharmacy}\SpecialCharTok{$}\NormalTok{cluster)}
+\NormalTok{Med\_Recom }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(Pharmacy}\FloatTok{.2}\NormalTok{, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\FunctionTok{factor}\NormalTok{(Cluster), }\AttributeTok{fill=}\NormalTok{Median\_Recommendation)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \StringTok{\textquotesingle{}dodge\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{\textquotesingle{}Clusters\textquotesingle{}}\NormalTok{, }\AttributeTok{y=}\StringTok{\textquotesingle{}Frequence\textquotesingle{}}\NormalTok{)}
+\NormalTok{Loc }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(Pharmacy}\FloatTok{.2}\NormalTok{, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\FunctionTok{factor}\NormalTok{(Cluster), }\AttributeTok{fill=}\NormalTok{Location)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \StringTok{\textquotesingle{}dodge\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{\textquotesingle{}Clusters\textquotesingle{}}\NormalTok{, }\AttributeTok{y=}\StringTok{\textquotesingle{}Frequence\textquotesingle{}}\NormalTok{)}
+\NormalTok{Ex }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(Pharmacy}\FloatTok{.2}\NormalTok{, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\FunctionTok{factor}\NormalTok{(Cluster), }\AttributeTok{fill=}\NormalTok{Exchange)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position =} \StringTok{\textquotesingle{}dodge\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{\textquotesingle{}Clusters\textquotesingle{}}\NormalTok{, }\AttributeTok{y=}\StringTok{\textquotesingle{}Frequence\textquotesingle{}}\NormalTok{)}
+\FunctionTok{plot\_grid}\NormalTok{(Med\_Recom, Loc, Ex)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{./-Assignment_4_files/figure-latex/unnamed-chunk-30-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# The majority of the companies in cluster 3 are clearly American, and all of them advise holding their shares, according to the chart.Only on the New York Stock Exchange are they traded. We have chosen stocks for cluster 2 with a "Moderate Buy" recommendation; just two businesses (AMEX and NASDAQ) are from separate exchanges. Cluster 1 shows that even though the four companies\textquotesingle{} stocks are all traded on the NYSE, they are all from different nations.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#d. Provide an appropriate name for each cluster using any or all of the variables in the dataset.}
+
+\CommentTok{\#1) Cluster 1): Global Giants: These businesses are regarded as "overvalued international firms" due to their extensive global reach, NYSE listing, low net profit margins, and high price/earnings ratios.Their existing earnings do not adequately justify their high market value. They must make investments and boost profitability to satisfy investor expectations if they want to keep their stock prices high.}
+\CommentTok{\#2) Cluster 2: Opportunities for Growth: Because of their "Moderate buy" evaluations, high leverage, poor ROA, low asset turnover, and projected revenue growth, this group is referred to as "growing and leveraged firms".They are highly valued by investors despite their current lack of profitability and large debt load because they perceive promise for future growth.}
+\CommentTok{\#3) Cluster 3 {-} Stable US Companies: Because they are US{-}based, NYSE{-}listed, and have a "Hold" rating, the companies in this cluster are classified as "mature US firms".Compared to the other clusters, they are regarded as stable and mature, suggesting a more cautious attitude to investing.}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
